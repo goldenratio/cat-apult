@@ -6,6 +6,8 @@ Theme: Black Cat
 
 You can play the game at: https://labrat.mobi/games/catapult/
 
+Game developed using: karlib https://github.com/goldenratio/karlib
+
 ## Requirements
 
 - [Node.js LTS](https://nodejs.org/en/download)
