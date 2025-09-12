@@ -6,8 +6,8 @@ export class VirtualJoyStick {
   x: number = 0;
   y: number = 0;
 
-  private centerX: number = 0;
-  private centerY: number = 0;
+  private center_x: number = 0;
+  private center_y: number = 0;
   private radius: number = 0;
 
   private state: number = 0;
@@ -75,8 +75,8 @@ export class VirtualJoyStick {
       clientX = event.touches[0].clientX;
       clientY = event.touches[0].clientY;
     }
-    const dx = clientX - t.centerX;
-    const dy = clientY - t.centerY;
+    const dx = clientX - t.center_x;
+    const dy = clientY - t.center_y;
     const distance = Math.sqrt(dx * dx + dy * dy);
     const maxDistance = t.radius;
 
@@ -119,8 +119,8 @@ export class VirtualJoyStick {
   private update_joystick_bounds(): void {
     const t = this;
     const rect = t.joystick_base.getBoundingClientRect();
-    t.centerX = rect.left + rect.width / 2;
-    t.centerY = rect.top + rect.height / 2;
+    t.center_x = rect.left + rect.width / 2;
+    t.center_y = rect.top + rect.height / 2;
     t.radius = rect.width / 2;
   }
 }
