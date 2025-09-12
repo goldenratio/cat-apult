@@ -1,0 +1,30 @@
+{
+  "name": "cat-apult",
+  "version": "1.0.0",
+  "description": "A game for js13k 2025 gamejam",
+  "main": "src/main.ts",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist.zip dist js",
+    "zip-dist": "cd dist && zip -r ../dist.zip . && cd .. && advzip -z dist.zip && wc -c dist.zip",
+    "type-check": "tsc -p ./tsconfig.dev.json --noEmit",
+    "type-check:node": "tsc -p ./src/node/tsconfig.json --noEmit --skipLibCheck",
+    "dev": "npm run clean && npm run type-check && node ./dev.js",
+    "build:node": "npm run clean && npm run type-check:node && node ./build_node.js",
+    "build": "npm run clean && npm run type-check && node ./build.js --immutable-app",
+    "build:js13k": "npm run clean && npm run type-check && node ./build.js && npm run zip-dist"
+  },
+  "author": "Karthik Jayakumar",
+  "license": "Zlib",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "advzip-bin": "2.0.0",
+    "esbuild": "0.25.9",
+    "google-closure-compiler": "20250817.0.0",
+    "skia-canvas": "3.0.4",
+    "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@goldenratio/karlib": "0.0.4"
+  }
+}
