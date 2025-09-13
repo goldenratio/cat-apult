@@ -23,7 +23,7 @@ npm run dev
 
 - Run `npm run build:js13k`, to build game and create `dist.zip` for distribution
 
-## Run in native (opengl/metal/vulkan) env with skia-canvas
+## Run in Native window env with skia-canvas
 
 ```console
 npm run run:node
