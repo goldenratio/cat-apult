@@ -26,6 +26,5 @@ npm run dev
 ## Run in native (opengl/metal/vulkan) env with skia-canvas
 
 ```console
-npm run build:node
-node ./js/main.mjs
+npm run run:node
 ```

@@ -108,5 +108,5 @@ export function create_big_text_texture(options: BigTextOptions, env: BrowserEnv
 
   }
   const canvas_image_data = env.create_image_from_canvas(canvas);
-  return new Texture(canvas_image_data, width, height, ScaleMode.Nearest);
+  return new Texture(canvas_image_data, width, height, "linear");
 }
