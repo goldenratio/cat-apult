@@ -2,7 +2,7 @@ import fs from "node:fs";
 import * as sk from "skia-canvas"
 
 import { DisposeBag, Karlib } from "@goldenratio/karlib";
-import type { EnvProvider, FetchReponse, FixedLenArray } from "@goldenratio/karlib";
+import type { EnvProvider, FixedLenArray } from "@goldenratio/karlib";
 
 import { Game } from "../game.js";
 import { CanvasInteraction } from "../canvas_interaction.js";
@@ -33,11 +33,11 @@ class SkiaCanvasEnv implements EnvProvider {
     });
   }
 
-  load_json<TData>(url: string): Promise<FetchReponse<TData>> {
+  load_json<TData>(url: string): Promise<TData> {
     return new Promise(resolve => {
       const raw = fs.readFileSync(url, "utf-8");
       const data = JSON.parse(raw);
-      resolve({ success: true, data });
+      resolve(data);
     });
   }
 

@@ -1,5 +1,5 @@
 import type { BrowserEnv, Karlib } from "@goldenratio/karlib";
-import { ScaleMode, Texture } from "@goldenratio/karlib";
+import { SCALE_MODE, ScaleMode, Texture } from "@goldenratio/karlib";
 import type { Resource } from "./resource.js";
 
 interface BitmapTextOptions {
@@ -108,5 +108,5 @@ export function create_big_text_texture(options: BigTextOptions, env: BrowserEnv
 
   }
   const canvas_image_data = env.create_image_from_canvas(canvas);
-  return new Texture(canvas_image_data, width, height, "linear");
+  return new Texture(canvas_image_data, width, height, SCALE_MODE.Nearest);
 }
