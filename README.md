@@ -10,7 +10,7 @@ Game developed using: [karlib](https://github.com/goldenratio/karlib)
 
 ## Requirements
 
-- [Node.js LTS](https://nodejs.org/en/download)
+- [Node.js >=22.18.0](https://nodejs.org/en/download)
 
 ## Local Developement
 

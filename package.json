@@ -4,6 +4,9 @@
   "description": "A game for js13k 2025 gamejam",
   "main": "src/main.ts",
   "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
     "clean": "rm -rf dist.zip dist js",
     "zip-dist": "cd dist && zip -r ../dist.zip . && cd .. && advzip -z dist.zip && wc -c dist.zip",
