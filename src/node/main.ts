@@ -7,18 +7,18 @@ import type { EnvProvider, FixedLenArray } from "@goldenratio/karlib";
 import { Game } from "../game.js";
 import { CanvasInteraction } from "../canvas_interaction.js";
 
-function unsafeAssert<T>(value: unknown): T {
+function unsafe_assert<T>(value: unknown): T {
   return value as T;
 }
 
 class SkiaCanvasEnv implements EnvProvider {
   create_canvas(width: number, height: number): OffscreenCanvas {
-    return unsafeAssert(new sk.Canvas(width, height));
+    return unsafe_assert(new sk.Canvas(width, height));
   }
 
   create_image_from_canvas(canvas: sk.Canvas): ImageBitmap {
     const buffer = canvas.toBufferSync("png");
-    return unsafeAssert(new sk.Image(buffer));
+    return unsafe_assert(new sk.Image(buffer));
   }
 
   load_image(url: string): Promise<ImageBitmap | undefined> {
@@ -26,7 +26,7 @@ class SkiaCanvasEnv implements EnvProvider {
     return new Promise(async (resolve) => {
       try {
         const image = await sk.loadImage(updated_url);
-        resolve(unsafeAssert(image));
+        resolve(unsafe_assert(image));
       } catch (err) {
         resolve(undefined);
       }
@@ -43,7 +43,7 @@ class SkiaCanvasEnv implements EnvProvider {
 
   create_dom_matrix(value?: FixedLenArray<number, 6> | FixedLenArray<number, 16>): DOMMatrix {
     const matrix = new sk.DOMMatrix(value);
-    return unsafeAssert(matrix);
+    return unsafe_assert(matrix);
   }
 }
 
@@ -106,7 +106,7 @@ async function main(): Promise<void> {
   const env = new SkiaCanvasEnv();
 
   const kl = new Karlib({
-    canvas: unsafeAssert(canvas),
+    canvas: unsafe_assert(canvas),
     env: env,
     pixel_perfect: true,
   });
