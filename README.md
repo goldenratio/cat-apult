@@ -26,5 +26,5 @@ npm run dev
 ## Run in Native window env with skia-canvas
 
 ```console
-npm run run:node
+npm run node
 ```
