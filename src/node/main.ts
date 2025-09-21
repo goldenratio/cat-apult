@@ -120,7 +120,6 @@ async function main(): Promise<void> {
     canvas: canvas,
     fit: "contain",
     background: "#999999",
-    // @ts-ignore
     resizable: false,
   });
 

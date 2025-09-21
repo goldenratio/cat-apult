@@ -85,7 +85,7 @@ async function main(): Promise<void> {
   let fps = 60;
 
   const ticker = new BrowserTicker();
-  ticker.on_tick((delta_time) => {
+  ticker.on_tick(({ delta_time }) => {
     game.update(delta_time);
     game.draw();
 
