@@ -12,6 +12,10 @@ function unsafe_assert<T>(value: unknown): T {
 }
 
 class SkiaCanvasEnv implements EnvProvider {
+  get_device_pixel_ratio(): number {
+    return 1;
+  }
+
   create_canvas(width: number, height: number): OffscreenCanvas {
     return unsafe_assert(new sk.Canvas(width, height));
   }

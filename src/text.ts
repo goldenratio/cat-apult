@@ -1,4 +1,4 @@
-import type { BrowserEnv, Karlib } from "@goldenratio/karlib";
+import type { EnvProvider, Karlib } from "@goldenratio/karlib";
 import { SCALE_MODE, ScaleMode, Texture } from "@goldenratio/karlib";
 import type { Resource } from "./resource.js";
 
@@ -68,7 +68,7 @@ export interface BigTextOptions {
   readonly threshold?: number;
 }
 
-export function create_big_text_texture(options: BigTextOptions, env: BrowserEnv): Texture {
+export function create_big_text_texture(options: BigTextOptions, env: EnvProvider): Texture {
   const { text, font, width, height, fontHeight, depth, colors, threshold = 127 } = options;
 
   const canvas = env.create_canvas(width, height);
